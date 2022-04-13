@@ -1,4 +1,4 @@
-<?php
+
 <div class="slider">
             <div class="Modern-Slider content-section" id="top">
                 <!-- Item -->

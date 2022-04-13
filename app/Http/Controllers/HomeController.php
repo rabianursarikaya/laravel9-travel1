@@ -9,7 +9,13 @@ class HomeController extends Controller
     //
     public function index()
     {
+        //echo "aaa";
+       // exit();
         return view('home.index');
+    }
+    public function aboutus()
+    {
+        return view( 'home.about');
     }
 
     public function test()
@@ -24,20 +30,13 @@ class HomeController extends Controller
        // echo "<br>Sum Parameters :",$id+$number;
         return view('home.test2',
         [
-        'id'=>$id,
-            'number'=>$number
-        ]);
+        'id'=>$id]);
     }
     public function save(Request $request)
     {
         //echo "Save Function<br>";
         //echo "First Name :",$_REQUEST["fname"];
         //echo "Last Name :",$_REQUEST["lname"];
-        //return view('home.test2,
-        [
-            'fname' => $_REQUEST["fname"],
-            'lname' => $_REQUEST["lname"]
-
-        ]);
+        return view('home.test');
     }
 }

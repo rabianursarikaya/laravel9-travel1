@@ -1,4 +1,4 @@
-<?php
+
 <div class="page-content">
             <section id="featured" class="content-section">
                 <div class="section-heading">

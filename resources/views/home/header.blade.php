@@ -1,4 +1,3 @@
-<?php
 <header class="nav-down responsive-nav hidden-lg hidden-md">
             <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
                 <span class="sr-only">Toggle navigation</span>

@@ -16,11 +16,14 @@ use App\Http\Controllers\AdminPanel\HomeController as AdminHomeController;
 |
 */
 //2
-Route::get('/', function () {
+Route::get('/xxx', function () {
     return view('welcome');
 });
 //3
-Route::get('/',[HomeController::class ,'index'])->name('home');
+
+Route::get('/home',[HomeController::class ,'index'])->name('home');
+Route::get('/aboutus',[HomeController::class ,'aboutus'])->name('aboutus');
+
 //4
 Route::get('test',[HomeController::class ,'test'])->name('test');
 //5
@@ -29,7 +32,9 @@ Route::get('/param/{id}/{number}',[HomeController::class ,'param'])->name('param
 
 //route with post
 
+
 Route::get('/save',[HomeController::class ,'save'])->name('save');
+Route::get('/',[HomeController::class ,'index'])->name('home');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get( '/dashboard', function(){
