@@ -9,8 +9,7 @@ class HomeController extends Controller
     //
     public function index()
     {
-        //echo "aaa";
-       // exit();
+
         return view('home.index');
     }
     public function aboutus()

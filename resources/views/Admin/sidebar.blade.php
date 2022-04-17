@@ -1,143 +1,41 @@
-<nav class="navbar-default navbar-side" role="navigation">
-    <div class="sidebar-collapse">
-        <ul class="nav" id="main-menu">
-            <li>
-                <div class="user-img-div">
-                    <img src="assets/img/user.png" class="img-thumbnail" />
-
-                    <div class="inner-text">
-                        Jhon Deo Alex
-                        <br />
-                        <small>Last Login : 2 Weeks Ago </small>
-                    </div>
-                </div>
-
-            </li>
-
-
-            <li>
-                <a  href="index.html"><i class="fa fa-dashboard "></i>Dashboard</a>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-desktop "></i>UI Elements <span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li>
-                        <a href="panel-tabs.html"><i class="fa fa-toggle-on"></i>Tabs & Panels</a>
-                    </li>
-                    <li>
-                        <a href="notification.html"><i class="fa fa-bell "></i>Notifications</a>
-                    </li>
-                    <li>
-                        <a href="progress.html"><i class="fa fa-circle-o "></i>Progressbars</a>
-                    </li>
-                    <li>
-                        <a href="buttons.html"><i class="fa fa-code "></i>Buttons</a>
-                    </li>
-                    <li>
-                        <a href="icons.html"><i class="fa fa-bug "></i>Icons</a>
-                    </li>
-                    <li>
-                        <a href="wizard.html"><i class="fa fa-bug "></i>Wizard</a>
-                    </li>
-                    <li>
-                        <a href="typography.html"><i class="fa fa-edit "></i>Typography</a>
-                    </li>
-                    <li>
-                        <a href="grid.html"><i class="fa fa-eyedropper "></i>Grid</a>
-                    </li>
-
-
-                </ul>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-yelp "></i>Extra Pages <span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li>
-                        <a href="invoice.html"><i class="fa fa-coffee"></i>Invoice</a>
-                    </li>
-                    <li>
-                        <a href="pricing.html"><i class="fa fa-flash "></i>Pricing</a>
-                    </li>
-                    <li>
-                        <a href="component.html"><i class="fa fa-key "></i>Components</a>
-                    </li>
-                    <li>
-                        <a href="social.html"><i class="fa fa-send "></i>Social</a>
-                    </li>
-
-                    <li>
-                        <a href="message-task.html"><i class="fa fa-recycle "></i>Messages & Tasks</a>
-                    </li>
-
-
-                </ul>
-            </li>
-            <li>
-                <a href="table.html"><i class="fa fa-flash "></i>Data Tables </a>
-
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-bicycle "></i>Forms <span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-
-                    <li>
-                        <a href="form.html"><i class="fa fa-desktop "></i>Basic </a>
-                    </li>
-                    <li>
-                        <a href="form-advance.html"><i class="fa fa-code "></i>Advance</a>
-                    </li>
-
-
-                </ul>
-            </li>
-            <li>
-                <a href="gallery.html"><i class="fa fa-anchor "></i>Gallery</a>
-            </li>
-            <li>
-                <a href="error.html"><i class="fa fa-bug "></i>Error Page</a>
-            </li>
-            <li>
-                <a href="login.html"><i class="fa fa-sign-in "></i>Login Page</a>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-sitemap "></i>Multilevel Link <span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li>
-                        <a href="#"><i class="fa fa-bicycle "></i>Second Level Link</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-flask "></i>Second Level Link</a>
-                    </li>
-                    <li>
-                        <a href="#">Second Level Link<span class="fa arrow"></span></a>
-                        <ul class="nav nav-third-level">
-                            <li>
-                                <a href="#"><i class="fa fa-plus "></i>Third Level Link</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-comments-o "></i>Third Level Link</a>
-                            </li>
-
-                        </ul>
-
-                    </li>
-                </ul>
-            </li>
-
-            <li>
-                <a class="active-menu" href="blank.html"><i class="fa fa-square-o "></i>Blank Page</a>
-            </li>
-        </ul>
-    </div>
-
-</nav>
-<!-- /. NAV SIDE  -->
-<div id="page-wrapper">
-    <div id="page-inner">
-        <div class="row">
-            <div class="col-md-12">
-                <h1 class="page-head-line">BLANK PAGE</h1>
-                <h1 class="page-subhead-line">This is dummy text , you can replace it with your original text. </h1>
-
+<div class="sidebar pe-4 pb-3">
+    <nav class="navbar bg-light navbar-light">
+        <a href="index.html" class="navbar-brand mx-4 mb-3">
+            <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>DASHMIN</h3>
+        </a>
+        <div class="d-flex align-items-center ms-4 mb-4">
+            <div class="position-relative">
+                <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                <div class="bg-success rounded-circle  border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
+            </div>
+            <div class="ms-3">
+                <h6 class="mb-0">Jhon Doe</h6>
+                <span>Admin</span>
             </div>
         </div>
+        <div class="navbar-nav w-100">
+            <a href="index.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Elements</a>
+                <div class="dropdown-menu bg-transparent border-0">
+                    <a href="button.html" class="dropdown-item">Buttons</a>
+                    <a href="typography.html" class="dropdown-item">Typography</a>
+                    <a href="element.html" class="dropdown-item">Other Elements</a>
+                </div>
+            </div>
+            <a href="widget.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Widgets</a>
+            <a href="form.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Forms</a>
+            <a href="table.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Tables</a>
+            <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pages</a>
+                <div class="dropdown-menu bg-transparent border-0">
+                    <a href="signin.html" class="dropdown-item">Sign In</a>
+                    <a href="signup.html" class="dropdown-item">Sign Up</a>
+                    <a href="404.html" class="dropdown-item">404 Error</a>
+                    <a href="blank.html" class="dropdown-item">Blank Page</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>

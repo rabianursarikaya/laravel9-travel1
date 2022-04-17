@@ -24,11 +24,10 @@ Route::get('/xxx', function () {
 Route::get('/home',[HomeController::class ,'index'])->name('home');
 Route::get('/aboutus',[HomeController::class ,'aboutus'])->name('aboutus');
 
-//4
-Route::get('test',[HomeController::class ,'test'])->name('test');
+//Route::get('test',[HomeController::class ,'test'])->name('test');
 //5
 
-Route::get('/param/{id}/{number}',[HomeController::class ,'param'])->name('param');
+Route::get('/test/{id}/{name}',[HomeController::class ,'test'])->whereNumber('id')->whereAlpha('name')->name('test');
 
 //route with post
 
@@ -37,12 +36,15 @@ Route::get('/save',[HomeController::class ,'save'])->name('save');
 Route::get('/',[HomeController::class ,'index'])->name('home');
 
 
-Route::middleware(['auth:sanctum', 'verified'])->get( '/dashboard', function(){
-    return view('dashboard');
-})->name( 'dashboard');
+
 
 
 //*************************ADMIN PANEL*********************************
 
-Route::get('/admin',[AdminHomeController::class ,'index'])->name('admin');
+Route::get('/admin',[AdminHomeController::class ,'index'])->name('adminhome');
+
+
+Route::middleware(['auth:sanctum', 'verified'])->get( '/dashboard', function(){
+    return view('dashboard');
+})->name( 'dashboard');
 
