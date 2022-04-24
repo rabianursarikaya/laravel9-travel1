@@ -41,7 +41,13 @@ Route::get('/',[HomeController::class ,'index'])->name('home');
 
 //*************************ADMIN PANEL*********************************
 
-Route::get('/admin',[AdminHomeController::class ,'index'])->name('adminhome');
+Route::get('/adminpanel',[\App\Http\Controllers\Adminpanel\HomeController::class ,'index'])->name('adminhome');
+
+
+Route::get('adminpanel/login',[HomeController::class,'login'])->name( 'adminpanel_login');
+Route::post('adminpanel/logincheck',[HomeController::class,'logincheck'])->name( 'adminpanel_logincheck');
+Route::get('adminpanel/logout',[HomeController::class,'logout'])->name( 'adminpanel_logout');
+
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get( '/dashboard', function(){

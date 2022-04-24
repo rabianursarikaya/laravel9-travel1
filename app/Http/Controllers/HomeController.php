@@ -15,7 +15,13 @@ class HomeController extends Controller
     public function aboutus()
     {
         return view( 'home.about');
+
     }
+public function login()
+
+{
+return view( 'admin.login');
+}
 
     public function test()
     {
