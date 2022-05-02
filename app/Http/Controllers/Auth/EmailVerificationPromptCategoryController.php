@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\AdminPanel\CategoryController;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 
-class EmailVerificationPromptController extends Controller
+class EmailVerificationPromptCategoryController extends CategoryController
 {
     /**
      * Display the email verification prompt.
