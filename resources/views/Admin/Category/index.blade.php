@@ -3,6 +3,5 @@
 @section('title', 'Admin panel Home Panel')
 
 @section('content')
-    @include('admin.content')
+    <button>CLİCK ME</button>
 @endsection
-

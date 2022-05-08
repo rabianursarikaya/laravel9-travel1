@@ -43,9 +43,17 @@
     </div>
     <!-- Spinner End -->
     @include('admin.sidebar')
-
-    @section('admin.content')
+<!-- Content Start -->
+    <div class="content">
+    @include('admin.header')
+    @section('content')
     @show
+<!-- Footer End -->
+    @include('admin.footer')
+</div>
+<!-- Content End -->
+<!-- Back to Top -->
+<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
 </div>
 
 </body>

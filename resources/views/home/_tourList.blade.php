@@ -9,7 +9,7 @@
             <div class="owl-carousel owl-theme">
                 <div class="item">
                     <div class="image">
-                        <img src="img/featured_1.jpg" alt="">
+                        <img src="{{asset('assets')}}/img/featured_1.jpg" alt="">
                         <div class="featured-button button">
                             <a href="#projects">Continue Reading</a>
                         </div>
