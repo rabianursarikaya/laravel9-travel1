@@ -3,5 +3,10 @@
 @section('title', 'Admin panel Home Panel')
 
 @section('content')
-    <button>CLİCK ME</button>
+
+    <a href="/admin/category/createCategory" >
+        <button  style="background-color:tomato;color:white;width:100%;">Ana Sayfa </button>
+    </a>
+
+
 @endsection

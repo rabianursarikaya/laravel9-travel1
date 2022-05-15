@@ -3,13 +3,9 @@
 @section('title', 'Add Category')
 
 @section('content')
-    <button>CLİCK ME</button>
-@endsection
-@section('admin.content')
-
     <!-- Content Start -->
     <div class="content">
-    @include('admin.header')
+    @include('Admin.header')
     <!-- Sale & Revenue Start -->
         <div class="container-fluid pt-4 px-4">
             <div class="row g-4">
@@ -350,7 +346,7 @@
                 </div>
             </div>
         </div>
-        <select class="form-control">
+        <select class="form-control" name="status">
             <option>True</option>
             <option>False</option>
         </select>
@@ -378,13 +374,11 @@
             </div>
         </div>
         <!-- Footer End -->
-        @include('admin.footer')
+        @include('Admin.footer')
     </div>
     <!-- Content End -->
 
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-
 @endsection
-

@@ -51,6 +51,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
 });
 
+Route::get('/admin/category/createCategory', [\App\Http\Controllers\AdminPanel\CategoryController::class, 'createCategory'])->name('createCategory');
 
 Route::post('/logincheck', [HomeController::class, 'logincheck'])->name('admin_logincheck');
 Route::get('/logout', [HomeController::class, 'logout'])->name('admin_logout');

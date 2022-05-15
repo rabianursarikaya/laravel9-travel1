@@ -3,7 +3,7 @@
 @section('admin.content')
 
     <!-- Content Start -->
-    <div class="content">
+    <div class="content" xmlns="http://www.w3.org/1999/html">
     @include('admin.header')
         <!-- Sale & Revenue Start -->
         <div class="container-fluid pt-4 px-4">
@@ -73,6 +73,7 @@
             </div>
         </div>
         <!-- Sales Chart End -->
+
 
 
         <!-- Recent Sales Start -->
@@ -147,6 +148,79 @@
             </div>
         </div>
         <!-- Recent Sales End -->
+        <div class="col-sm-12 col-xl-6">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">Category List</h6>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Email</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>jhon@email.com</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>mark@email.com</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>jacob@email.com</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        //card header
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th style="width: 10px">Id</th>
+                    <th >Title</th>
+                    <th >Keyword</th>
+                    <th >Description</th>
+                    <th >Image</th>
+                    <th >Status</th>
+                    <th style="width: 40px">Edit</th>
+                    <th style="width: 40px">Delete</th>
+                    <th style="width: 40px">Show</th>
+
+
+                </tr>
+                </thead>
+                <tbody>
+                @foreach( $data as  $rs)
+        <tr>
+            <td>{{$rs->id}}</td>
+            <td>{{$rs->title}}</td>
+            <td>{{$rs->keywords}}</td>
+            <td>{{$rs->description}}</td>
+            <td>{{$rs->image}}</td>
+            <td>{{$rs->status}}</td>
+            <td><a href="/admin/category/Edit{{$rs->id}}" class="btn btn-lg btn-info btn-lg-square back-to-top">Edit</a> </td>
+            <td><a href="/admin/category/Delete{{$rs->id}}" class="btn btn-lg btn-danger btn-lg-square back-to-top">Delete </a> </td>
+            <td><a href="/admin/category/Show{{$rs->id}}" class="btn btn-lg btn-success btn-lg-square back-to-top">Show</a> </td>
+        </tr>
+
+    @endforeach
+    </tbody>
+    </table>
+    </div>
+
 
 
         <!-- Widgets Start -->
