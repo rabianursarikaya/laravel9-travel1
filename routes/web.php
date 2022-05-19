@@ -56,6 +56,6 @@ Route::get('/admin/category/createCategory', [\App\Http\Controllers\AdminPanel\C
 Route::post('/logincheck', [HomeController::class, 'logincheck'])->name('admin_logincheck');
 Route::get('/logout', [HomeController::class, 'logout'])->name('admin_logout');
 Route::get('/admin/category/store', [\App\Http\Controllers\AdminPanel\CategoryController::class, 'store'])->name('admin_category_store');
-
-
+Route::get('/admin/category/edit/{id}', [AdminCategoryController::class, 'edit'])->name('admin_category_edit');
+Route::get('/admin/category/update/{id}', [AdminCategoryController::class, 'update'])->name('admin_category_update');
 
