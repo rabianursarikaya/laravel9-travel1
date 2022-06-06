@@ -40,7 +40,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [AdminHomeController::class, 'index'])->name('index');
 //category routes
     Route::prefix('/category')->name('category.')->controller(AdminCategoryController::class)->group(function () {
-        Route::get('/', 'index')->name('index');
+        Route::get('/c', 'index')->name('index');
         Route::get('/create', 'create')->name('create');
         Route::post('/store', 'store')->name('store');
         Route::get('/edit/{id}', 'edit')->name('edit');
@@ -50,12 +50,3 @@ Route::prefix('admin')->name('admin.')->group(function () {
     });
 
 });
-
-Route::get('/admin/category/createCategory', [\App\Http\Controllers\AdminPanel\CategoryController::class, 'createCategory'])->name('createCategory');
-
-Route::post('/logincheck', [HomeController::class, 'logincheck'])->name('admin_logincheck');
-Route::get('/logout', [HomeController::class, 'logout'])->name('admin_logout');
-Route::get('/admin/category/store', [\App\Http\Controllers\AdminPanel\CategoryController::class, 'store'])->name('admin_category_store');
-Route::get('/admin/category/edit/{id}', [AdminCategoryController::class, 'edit'])->name('admin_category_edit');
-Route::get('/admin/category/update/{id}', [AdminCategoryController::class, 'update'])->name('admin_category_update');
-

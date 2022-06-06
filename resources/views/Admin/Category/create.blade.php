@@ -4,15 +4,21 @@
 
 @section('content')
     <!-- Content Start -->
-    <div class="content">
-    @include('Admin.header')
+
     <!-- Sale & Revenue Start -->
         <div class="container-fluid pt-4 px-4">
-            <div class="row g-4">
-                <div class="col-sm-6 col-xl-3">
+            <div class="row mb-2">
+                <div class="col-sm-6">
                     <h1>Add Category</h1>
                     <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                         <i class="fa fa-chart-line fa-3x text-primary"></i>
+                        <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a></li>
+                            <li class="breadcrumb-item active">Add Category</li>
+
+                        </ol>
+                        </div>
                         <div class="ms-3">
                             <p class="mb-2">Today Sale</p>
                             <h6 class="mb-0">$1234</h6>
@@ -354,7 +360,8 @@
         <div class="col-sm-12 col-xl-6">
             <div class="bg-light rounded h-100 p-4">
                 <h6 class="mb-4">Category Elements</h6>
-                <form>
+                <form role="form" action="{{route('admin.index')}}" method="post">
+                    @csrf
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Title</label>
                         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">

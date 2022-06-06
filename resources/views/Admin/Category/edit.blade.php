@@ -55,11 +55,11 @@
         <div class="container-fluid pt-4 px-4">
             <div class="row g-4">
                 <div class="col-sm-12 col-xl-6">
-                    <h1>Edit Category</h1>
+                    <h1>show Category</h1>
                     <div class="bg-light text-center rounded p-4">
                         <div class="d-flex align-items-center justify-content-between mb-4">
 
-                            <h6 class="mb-0">Edit Category</h6>
+                            <h6 class="mb-0">show Category</h6>
                             <a href="">"/admin">Home</a>
                         </div>
                         <canvas id="worldwide-sales"></canvas>
@@ -357,34 +357,14 @@
             <option>True</option>
             <option>False</option>
         </select>
-
-        <div class="col-sm-12 col-xl-6">
-            <div class="bg-light rounded h-100 p-4">
-                <h6 class="mb-4">Category Elements</h6>
-                <form role="form" action="/admin/category/update/{{$data->id}}" method="post">
-                    @csrf
-                    <div class="form-group">
-                        <label for="exampleInputEmail1" class="form-label">Title</label>
-                        <input type="text" class="form-control" name="title" value="{{$data->id}}">
-                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1" class="Keywords"></label>
-                        <input type="text" class="form-control" name="keywords" value="{{$data->keywords}}" >
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-check-input" name=description" value="{{$data->description}}">
-                        <label class="form-check-label" for="exampleCheck1">Description</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Update data</button>
-                </form>
-            </div>
-        </div>
-        <!-- Footer End -->
-        @include('Admin.footer')
-    </div>
-    <!-- Content End -->
+<-- Main content -->
+       <section  class="content">
+           <div class="card">
+               <div class="card-header">
+                   <h3 class="card-title">Details</h3>
+               </div>
+           </div>
+       </section>
 
 
     <!-- Back to Top -->

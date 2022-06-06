@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AdminPanel\HomeController as AdminHomeController;
-use App\Http\Controllers\AdminPanel\CategoryController as AdminHomeController;
+/*use App\Http\Controllers\AdminPanel\CategoryController as AdminHomeController;*/
 
 class HomeController extends Controller
 {
