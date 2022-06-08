@@ -153,6 +153,7 @@
         <!-- Recent Sales End -->
 
 
+
         <!-- Widgets Start -->
         <div class="container-fluid pt-4 px-4">
             <div class="row g-4">
@@ -273,7 +274,53 @@
             </div>
         </div>
         <!-- Widgets End -->
-        <div class="col-sm-12 col-xl-6">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Category Elements</h3>
+        </div>
+        <form role="form" action="{{route('admin.category.update',['id'=>$data->id])}}" method="post">
+            @csrf
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Title</label>
+                    <input type="text" class="form-control" name="title" value="{{$data->title}}" >
+            </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">keywords</label>
+                    <input type="text" class="form-control" name="keywords" value="{{$data->keywords}}" >
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">id</label>
+                    <input type="text" class="form-control" name="id" value="{{$data->id}}" >
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">parent_id</label>
+                    <input type="text" class="form-control" name="parent_id" value="{{$data->parent_id}}" >
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">description</label>
+                    <input type="text" class="form-control" name="description" value="{{$data->description}}" >
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">image</label>
+                    <input type="text" class="form-control" name="image" value="{{$data->image}}" >
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">status</label>
+                    <input type="text" class="form-control" name="status" value="{{$data->status}}" >
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">created_at</label>
+                    <input type="text" class="form-control" name="created_at" value="{{$data->created_at}}" >
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">updated_at</label>
+                    <input type="text" class="form-control" name="updated_at" value="{{$data->updated_at}}" >
+                </div>
+
+
+
+                <div class="col-sm-12 col-xl-6">
             <div class="bg-light rounded h-100 p-4">
                 <h6 class="mb-4">Check, Radio &amp; Switch</h6>
 

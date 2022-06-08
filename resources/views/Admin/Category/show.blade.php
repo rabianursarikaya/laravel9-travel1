@@ -11,10 +11,10 @@
             <div class="row mb-2">
                 <div class="col-sm-3">
 
-                    <a href="{{route('admin.category.edit',['id'=>$rs->id])}}" class="btn btn-block bg-gradient-info">Edit</a>
+                    <a href="{{route('admin.category.edit',['id'=>$data->id])}}" class="btn btn-block bg-gradient-info">Edit</a>
                 </div>
                 <div class="col-sm-3">
-                    <a href="{{route(admin.category.destroy',['id'=>$rs->id])}}" onclick="return confirm('Deleting !! Are you sure ?')" class="btn btn-block bg-gradient-danger" style="width: 200px">Delete</a>"
+                    <a href="{{route('admin.category.destroy',['id'=>$data->id])}}" onclick="return confirm('Deleting !! Are you sure ?')" class="btn btn-block bg-gradient-danger" style="width: 200px">Delete</a>"
                 </div>
                     <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                         <i class="fa fa-chart-line fa-3x text-primary"></i>

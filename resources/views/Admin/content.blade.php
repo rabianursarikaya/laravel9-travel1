@@ -219,6 +219,9 @@
             <td>{{$rs->description}}</td>
             <td>{{$rs->image}}</td>
             <td>{{$rs->status}}</td>
+            <td>{{$rs->parent_id}}</td>
+            <td>{{$rs->created_at}}</td>
+            <td>{{$rs->updated_at}}</td>
             <td><a href="{{route('admin.category.edit',[$rs->id])}}" class="btn btn-block btn-info btn-sm">Edit</a></td>
             <td><a href="/admin/category/destroy/{{$rs->id}}" class="btn btn-block btn-danger btn-sm"
               onclick="return confirm('Deleting !! Are you sure?')" >Delete </a> </td>
