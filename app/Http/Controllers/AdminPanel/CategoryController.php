@@ -5,6 +5,9 @@ namespace App\Http\Controllers\AdminPanel;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use function Symfony\Component\Translation\t;
+
 
 class CategoryController extends Controller
 {
@@ -13,6 +16,30 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    protected $appends = [
+        'getParentsTree'
+    ];
+    public static function getParentsTree($category,$title)
+    {
+        if ($category->parent_id==0)
+        {
+            return $title;
+        }
+        $parent = Category::find($category->parent_id);
+        $title = $parent->title . '>' . $title;
+        return CategoryController::getParentsTree($parent,$title);
+    }
+
+
+
+
+
+
+
+
+
+
     public function index()
     {
         $data=  Category::all();
@@ -50,6 +77,9 @@ class CategoryController extends Controller
         $data-> keywords= $request->keywords;
         $data-> description= $request->description;
         $data-> status= $request->status;
+        if ($request->file( 'image')){
+            $data->image= $request->file('image')->store( 'images');
+        }
         $data->save();
         return redirect('admin/category');
     }
@@ -105,6 +135,11 @@ class CategoryController extends Controller
             $data-> keywords= $request->keywords;
             $data-> description= $request->description;
             $data-> status= $request->status;
+            $data-> created_at= $request->created_at;
+            $data-> updated_at =$request->updated_at;
+            if ($request->file(key: 'image')){
+                $data->image= $request->file('image')->store( 'images');
+            }
             $data->save();
             return redirect('admin/category');
 
@@ -116,9 +151,13 @@ class CategoryController extends Controller
      * @param \App\Models\Category $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Category $category,$id)
     {
         //
+        $data= Category::find($id);
+        Storage::delete($data->image);
+        $data->delete();
+        return redirect(to: 'admin/category');
     }
 
     public function createCategory()

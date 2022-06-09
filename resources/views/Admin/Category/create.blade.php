@@ -22,31 +22,41 @@
         </div>
         <!-- /.box-header -->
         <!-- form start -->
-        <form class="form-horizontal" action="{{url('/')}}/admin/kategori/save" method="post" enctype="multipart/form-data" >
+        <form role="form" action="{{url('/admin/category/store')}}" method="post" enctype="multipart/form-data" >
             @csrf
-            <div class="box-body">
-                <div class="form-group">
-                    <label  class="col-sm-2 control-label">Kategori Adı</label>
 
-                    <div class="col-sm-10">
-                        <input type="text" name="adi"  required class="form-control"  placeholder="Kategori adı">
-                    </div>
-                </div>
+            <div class="card-body">
+                <div class="card-body">
                 <div class="form-group">
-                    <label  class="col-sm-2 control-label">Keywords-Anahtar Kelimeler</label>
-
-                    <div class="col-sm-10">
-                        <input type="text" name="keywords" class="form-control"  placeholder="Keywords">
-                    </div>
+                    <label for="exampleInputEmail1">Title</label>
+                    <input type="text" name="title"  class="form-control"  placeholder="Title">
                 </div>
 
-                <div class="form-group">
-                    <label  class="col-sm-2 control-label">Description-Açıklama</label>
-
-                    <div class="col-sm-10">
-                        <input type="text" name="description" class="form-control"  placeholder="Description">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Keywords</label>
+                        <input type="text" name="keyword"  class="form-control"  placeholder="Keyword">
                     </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Description</label>
+                            <input type="text" name="description"  class="form-control"  placeholder="Description">
+                        </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Image</label>
+                                <input type="text" name="image"  class="form-control"  placeholder="Image">
+                            </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Status</label>
+                                    <input type="text" name="status"  class="form-control"  placeholder="Status">
+                                </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Created_at</label>
+                                        <input type="text" name="created_at"  class="form-control"  placeholder="Created_at">
+                                    </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Updated_at</label>
+                    <input type="text" name="updated_at"  class="form-control"  placeholder="Updated_at">
                 </div>
+
 
 
                 <div class="form-group">
@@ -55,57 +65,35 @@
                         <select class="form-control" name="ust_id">
                             <option value="0">Kategori Yok</option>
 
-                            <?php
 
-                            $baglanti = new mysqli("localhost", "root", "", "laravel9-travel1");
-
-                            if ($baglanti->connect_errno > 0) {
-                                die("<b>Bağlantı Hatası:</b> " . $baglanti->connect_error);
-                            }
-
-                            $baglanti->set_charset("utf8");
-
-                            echo "Veri çekme işlemi";
-                            $categories = $baglanti->query("SELECT * FROM categories");
-                            $baglanti->close();
-                            ?>
-                            @foreach($categories as $rs)
-                                <option value="{{$rs->id}}">{{$rs->title}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label  class="col-sm-2 control-label">Aktif Durum</label>
-
-                    <div class="col-sm-10">
-                        <select class="form-control" name="durum">
-                            <option>Evet</option>
-                            <option>Hayır</option>
+                    <div class="form-group">
+                        <label>Status</label>
+                        <select class="form-control" name="status">
+                            <option>True</option>
+                            <option>False</option>
 
                         </select>
                     </div>
-                </div>
+
 
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Kategori Ana resim</label>
-                    <div class="col-sm-10">
-                        <input type="file" required name="resim">
+                    <label for="exampleInputFile">Image</label>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input"  name="image">
                     </div>
-                    <p class="help-block">Resim dosyası seçiniz.</p>
+                    <label class="custom-file-label" for="exampleInputFile">Choose image file</label>
                 </div>
 
 
-            </div>
+
             <!-- /.box-body -->
-            <div class="box-footer">
-                <button type="submit" class="btn btn-default">Cancel</button>
-                <button type="submit" class="btn btn-info pull-right">KAYDET</button>
+            <div class="card-footer">
+
+                <button type="submit" class="btn btn-primary">Save</button>
             </div>
             <!-- /.box-footer -->
-        </form>
-    </div>
+
+
 
 
 

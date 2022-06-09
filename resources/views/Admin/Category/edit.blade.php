@@ -278,7 +278,7 @@
             <div class="card-header">
                 <h3 class="card-title">Category Elements</h3>
         </div>
-        <form role="form" action="{{route('admin.category.update',['id'=>$data->id])}}" method="post">
+        <form role="form" action="{{route('admin.category.update',['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="card-body">
                 <div class="form-group">
