@@ -137,7 +137,10 @@
                 </tr>
                 <tr>
                     <th> Image </th>
-                    <td></td>
+                    <td>
+                        <img src="{{Storage::url($data->image)}}" style="height: 40px">
+
+                    </td>
                 </tr>
                 <tr>
                     <th> Status </th>
@@ -148,8 +151,8 @@
                     <td>{{$data->created_at}}</td>
                 </tr>
                 <tr>
-                    <th> update date</th>
-                    <td>{{$data->update_at}}</td>
+                    <th> updated date</th>
+                    <td>{{$data->updated_at}}</td>
                 </tr>
 
             </table>

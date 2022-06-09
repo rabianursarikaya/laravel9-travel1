@@ -317,7 +317,10 @@
                     <label for="exampleInputEmail1">updated_at</label>
                     <input type="text" class="form-control" name="updated_at" value="{{$data->updated_at}}" >
                 </div>
+                <div class="card-footer">
 
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
 
 
                 <div class="col-sm-12 col-xl-6">

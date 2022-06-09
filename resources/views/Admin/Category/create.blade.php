@@ -34,43 +34,29 @@
 
                     <div class="form-group">
                         <label for="exampleInputEmail1">Keywords</label>
-                        <input type="text" name="keyword"  class="form-control"  placeholder="Keyword">
+                        <input type="text" name="keywords"  class="form-control"  placeholder="Keywords">
                     </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Description</label>
                             <input type="text" name="description"  class="form-control"  placeholder="Description">
                         </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Image</label>
-                                <input type="text" name="image"  class="form-control"  placeholder="Image">
-                            </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Status</label>
-                                    <input type="text" name="status"  class="form-control"  placeholder="Status">
-                                </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Created_at</label>
-                                        <input type="text" name="created_at"  class="form-control"  placeholder="Created_at">
-                                    </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Updated_at</label>
-                    <input type="text" name="updated_at"  class="form-control"  placeholder="Updated_at">
-                </div>
+
 
 
 
                 <div class="form-group">
-                    <label  class="col-sm-2 control-label">Kategorisi</label>
+                    <label  class="col-sm-2 control-label">Status</label>
                     <div class="col-sm-10">
-                        <select class="form-control" name="ust_id">
-                            <option value="0">Kategori Yok</option>
+                        <select class="form-control" name="status">
+                            <option  value=true>True</option>
+                            <option value=false>False</option>
 
 
                     <div class="form-group">
                         <label>Status</label>
                         <select class="form-control" name="status">
-                            <option>True</option>
-                            <option>False</option>
+
+
 
                         </select>
                     </div>
