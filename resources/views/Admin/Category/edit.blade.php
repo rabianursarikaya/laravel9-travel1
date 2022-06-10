@@ -11,72 +11,8 @@
             <div class="row g-4">
                 <div class="col-sm-6 col-xl-3">
                     <h1>Edit Category:   {{$data->title}}</h1>
-                    <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                        <i class="fa fa-chart-line fa-3x text-primary"></i>
-                        <div class="ms-3">
-                            <p class="mb-2">Today Sale</p>
-                            <h6 class="mb-0">$1234</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xl-3">
-                    <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                        <i class="fa fa-chart-bar fa-3x text-primary"></i>
-                        <div class="ms-3">
-                            <p class="mb-2">Total Sale</p>
-                            <h6 class="mb-0">$1234</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xl-3">
-                    <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                        <i class="fa fa-chart-area fa-3x text-primary"></i>
-                        <div class="ms-3">
-                            <p class="mb-2">Today Revenue</p>
-                            <h6 class="mb-0">$1234</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xl-3">
-                    <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                        <i class="fa fa-chart-pie fa-3x text-primary"></i>
-                        <div class="ms-3">
-                            <p class="mb-2">Total Revenue</p>
-                            <h6 class="mb-0">$1234</h6>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
-        <!-- Sale & Revenue End -->
-
-
-        <!-- Sales Chart Start -->
-        <div class="container-fluid pt-4 px-4">
-            <div class="row g-4">
-                <div class="col-sm-12 col-xl-6">
-                    <h1>show Category</h1>
-                    <div class="bg-light text-center rounded p-4">
-                        <div class="d-flex align-items-center justify-content-between mb-4">
-
-                            <h6 class="mb-0">show Category</h6>
-                            <a href="">"/admin">Home</a>
-                        </div>
-                        <canvas id="worldwide-sales"></canvas>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-xl-6">
-                    <div class="bg-light text-center rounded p-4">
-                        <div class="d-flex align-items-center justify-content-between mb-4">
-                            <h6 class="mb-0">Salse & Revenue</h6>
-                            <a href="">Show All</a>
-                        </div>
-                        <canvas id="salse-revenue"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Sales Chart End -->
 
 
         <!-- Recent Sales Start -->
@@ -282,6 +218,20 @@
             @csrf
             <div class="card-body">
                 <div class="form-group">
+
+                    <label>Parent Category</label>
+                    <select class="form-control select2" name="parent_id" style="...">
+                        <option value="0" selected="selected">Main Category</option>
+                        @foreach($datalist as $rs)
+{{--                            <option value="{{$rs->id}}" @if($rs->id == $data->parent_id)  selected="selected" @endif >--}}
+{{--                                {{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->$title)}}</option>--}}
+                        @endforeach
+                    </select>
+
+
+
+
+
                     <label for="exampleInputEmail1">Title</label>
                     <input type="text" class="form-control" name="title" value="{{$data->title}}" >
             </div>

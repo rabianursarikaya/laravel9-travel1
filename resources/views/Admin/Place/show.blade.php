@@ -1,17 +1,21 @@
+@extends('layouts.admin')
 
+@section('title', 'Show Place: ',$data->title )
 
-@section('admin.content')
-
+@section('content')
     <!-- Content Start -->
-    <div class="content" xmlns="http://www.w3.org/1999/html">
-    @include('admin.header')
-        <!-- Sale & Revenue Start -->
+    <div class="content">
+    @include('Admin.header')
+    <!-- Sale & Revenue Start -->
         <div class="container-fluid pt-4 px-4">
-            <div class="row g-4">
-                <div class="col-sm-6 col-xl-3">
-                    <a href="/admin/place/create" class="btn btn-info m-2" style="width: 200px">Add Place</a>
+            <div class="row mb-2">
+                <div class="col-sm-3">
 
-                    </button>
+                    <a href="{{route('admin.place.edit',['id'=>$data->id])}}" class="btn btn-block bg-gradient-info">Edit</a>
+                </div>
+                <div class="col-sm-3">
+                    <a href="{{route('admin.place.destroy',['id'=>$data->id])}}" onclick="return confirm('Deleting !! Are you sure ?')" class="btn btn-block bg-gradient-danger" style="width: 200px">Delete</a>"
+                </div>
                     <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                         <i class="fa fa-chart-line fa-3x text-primary"></i>
                         <div class="ms-3">
@@ -56,10 +60,12 @@
         <div class="container-fluid pt-4 px-4">
             <div class="row g-4">
                 <div class="col-sm-12 col-xl-6">
+                    <h1>Edit Place</h1>
                     <div class="bg-light text-center rounded p-4">
                         <div class="d-flex align-items-center justify-content-between mb-4">
-                            <h6 class="mb-0">Worldwide Sales</h6>
-                            <a href="">Show All</a>
+
+                            <h6 class="mb-0">Edit Place</h6>
+                            <a href="">"/admin">Home</a>
                         </div>
                         <canvas id="worldwide-sales"></canvas>
                     </div>
@@ -76,7 +82,6 @@
             </div>
         </div>
         <!-- Sales Chart End -->
-
 
 
         <!-- Recent Sales Start -->
@@ -109,150 +114,77 @@
                             <td>Paid</td>
                             <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
                         </tr>
-                        <tr>
-                            <td><input class="form-check-input" type="checkbox"></td>
-                            <td>01 Jan 2045</td>
-                            <td>INV-0123</td>
-                            <td>Jhon Doe</td>
-                            <td>$123</td>
-                            <td>Paid</td>
-                            <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                        </tr>
-                        <tr>
-                            <td><input class="form-check-input" type="checkbox"></td>
-                            <td>01 Jan 2045</td>
-                            <td>INV-0123</td>
-                            <td>Jhon Doe</td>
-                            <td>$123</td>
-                            <td>Paid</td>
-                            <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                        </tr>
-                        <tr>
-                            <td><input class="form-check-input" type="checkbox"></td>
-                            <td>01 Jan 2045</td>
-                            <td>INV-0123</td>
-                            <td>Jhon Doe</td>
-                            <td>$123</td>
-                            <td>Paid</td>
-                            <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                        </tr>
-                        <tr>
-                            <td><input class="form-check-input" type="checkbox"></td>
-                            <td>01 Jan 2045</td>
-                            <td>INV-0123</td>
-                            <td>Jhon Doe</td>
-                            <td>$123</td>
-                            <td>Paid</td>
-                            <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+
         <!-- Recent Sales End -->
-        <div class="col-sm-12 col-xl-6">
-            <div class="bg-light rounded h-100 p-4">
-                <h6 class="mb-4">Place List</h6>
-                <table class="table table-bordered">
-                    <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First Name</th>
-                        <th scope="col">Last Name</th>
-                        <th scope="col">Email</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>jhon@email.com</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mark@email.com</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>jacob@email.com</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header">
-                <a href="">Add Place</a>
-            </div>
-        </div>
 
-        //card header
-        <div class="card-body">
-            <table class="table table-bordered">
-                <thead>
+        <!--/.card-header -->
+
+        <div class="card-body p-0">
+
+            <table class="table table-striped">
+
                 <tr>
-                    <th style="width: 10px">Id</th>
-                    <td >CategoryId</td>
-                    <td >UserId</td>
-                    <td >created_at</td>
-                    <td >updated_at</td>
-                    <td >City</td>
-                    <td >Country</td>
-                    <td >Location</td>
-                    <th >Title</th>
-                    <th >Detail</th>
-                    <th >Title</th>
-                    <th >Keyword</th>
-                    <th >Description</th>
-                    <th >Image</th>
-                    <th >Status</th>
-                    <th style="width: 40px">Edit</th>
-                    <th style="width: 40px">Delete</th>
-                    <th style="width: 40px">Show</th>
-
-
+                    <th> style = "width: 200px">Id </th>
+                    <td>{{$data->id}}</td>
                 </tr>
-                </thead>
-                <tbody>
-                @foreach( $data as  $rs)
-        <tr>
-            <td>{{$rs->id}}</td>
-            <td>{{$rs->title}}</td>
-            <td>{{$rs->keywords}}</td>
-            <td>{{$rs->description}}</td>
-            <td>{{$rs->userId}}</td>
-            <td>{{$rs->categoryId}}</td>
-            <td>{{$rs->city}}</td>
-            <td>{{$rs->location}}</td>
-            <td>{{$rs->country}}</td>
-            <td>{{$rs->detail}}</td>
-            <td>
-                @if($rs->image)
-                    <img src="{{Storage::url($rs->image)}}" style="height: 40px">
-                @endif
-            </td>
+                <tr>
+                    <th> Title </th>
+                    <td>{{$data->title}}</td>
+                </tr>
+                <tr>
+                    <th> Keywords </th>
+                    <td>{{$data->keywords}}</td>
+                </tr>
+                <tr>
+                    <th> Image </th>
+                    <td>  @if($rs->image)
+                        <img src="{{Storage::url($data->image)}}" style="height: 100px">
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <th> Status </th>
+                    <td>{{$data->status}}</td>
+                </tr>
+                <tr>
+                    <th> Created date </th>
+                    <td>{{$data->created_at}}</td>
+                </tr>
+                <tr>
+                    <th> Updated date</th>
+                    <td>{{$data->updated_at}}</td>
+                </tr>
+                <tr>
+                    <th> UserId</th>
+                    <td>{{$data->userId}}</td>
+                </tr>
+                <tr>
+                    <th> CategoryId</th>
+                    <td>{{$data->categoryId}}</td>
+                </tr>
+                <tr>
+                    <th> Detail</th>
+                    <td>{{$data->detail}}</td>
+                </tr>
+                <tr>
+                    <th> City</th>
+                    <td>{{$data->city}}</td>
+                </tr>
+                <tr>
+                    <th> Country</th>
+                    <td>{{$data->country}}</td>
+                </tr>
+                <tr>
+                    <th> Location</th>
+                    <td>{{$data->location}}</td>
+                </tr>
+                <tr>
+                    <th> Description</th>
+                    <td>{{$data->description}}</td>
+                </tr>
 
-            <td>{{$rs->status}}</td>
-            <td>{{$rs->parent_id}}</td>
-            <td>{{$rs->created_at}}</td>
-            <td>{{$rs->updated_at}}</td>
-            <td><a href="{{route('admin.place.edit',[$rs->id])}}" class="btn btn-block btn-info btn-sm">Edit</a></td>
-            <td><a href="/admin/place/destroy/{{$rs->id}}" class="btn btn-block btn-danger btn-sm"
-              onclick="return confirm('Deleting !! Are you sure?')" >Delete </a> </td>
-            <td><a href="{{route('admin/place/show',[$rs->id])}}" class="btn btn-block btn-success btn-sm">Show</a> </td>
-        </tr>
-
-    @endforeach
-    </tbody>
-    </table>
-    </div>
-
+            </table>
+        </div>
 
 
         <!-- Widgets Start -->
@@ -323,7 +255,7 @@
                         </div>
                         <div class="d-flex mb-2">
                             <input class="form-control bg-transparent" type="text" placeholder="Enter task">
-                            <button type="button" class="btn btn-primary ms-2">Add</button>
+                            <button type="button" class="btn btn-primary ms-2">Save</button>
                         </div>
                         <div class="d-flex align-items-center border-bottom py-2">
                             <input class="form-check-input m-0" type="checkbox">
@@ -375,15 +307,105 @@
             </div>
         </div>
         <!-- Widgets End -->
+        <div class="col-sm-12 col-xl-6">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">Check, Radio &amp; Switch</h6>
+
+
+                <div class="form-check">
+
+
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Default checkbox
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked="">
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Checked checkbox
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                    <label class="form-check-label" for="inlineCheckbox1">1</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                    <label class="form-check-label" for="inlineCheckbox2">2</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" disabled="">
+                    <label class="form-check-label" for="inlineCheckbox3">3 (disabled)</label>
+                </div>
+                <hr>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Default radio
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked="">
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Default checked radio
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                    <label class="form-check-label" for="inlineRadio1">1</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                    <label class="form-check-label" for="inlineRadio2">2</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" disabled="">
+                    <label class="form-check-label" for="inlineRadio3">3 (disabled)</label>
+                </div>
+                <hr>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox
+                        input</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked="">
+                    <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox
+                        input</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDisabled" disabled="">
+                    <label class="form-check-label" for="flexSwitchCheckDisabled">Disabled switch checkbox
+                        input</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckCheckedDisabled" checked="" disabled="">
+                    <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Disabled checked
+                        switch checkbox input</label>
+                </div>
+            </div>
+        </div>
+        <select class="form-control" name="status">
+            <option selected>{{$data->status}}</option>
+            <option>True</option>
+            <option>False</option>
+        </select>
 
 
         <!-- Footer End -->
-        @include('admin.footer')
+        @include('Admin.footer')
     </div>
+
+
+    <section class="content">
+
+
+
+    </section>
     <!-- Content End -->
 
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-
 @endsection

@@ -23,11 +23,8 @@
         </div>
 
         <li class="nav-item">
-            <a href="/admin/category" class="nav-link"><i class="navbar-toggle-icon fas fa-th text-warning"></i>Categories</a>
-        </li>
-        <li class="nav-item">
-            <a href="/admin/product" class="nav-link"><i class="navbar-toggle-icon fas fa-th text-danger"></i>Products</a>
-        </li>
+            <a href="/admin/category" class="nav-link"><i class="navbar-toggle-icon fas fa-th text-warning"></i>Places</a>
+
         <li class="nav-item">
             <a href="/admin/comment" class="nav-link"><i class="navbar-toggle-icon fas fa-comment text-info"></i>Comments</a>
         </li>

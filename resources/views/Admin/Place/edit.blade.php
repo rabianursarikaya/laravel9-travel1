@@ -1,82 +1,18 @@
+@extends('layouts.admin')
 
+@section('title', 'Edit Category: ',$data->title )
 
-@section('admin.content')
-
+@section('content')
     <!-- Content Start -->
-    <div class="content" xmlns="http://www.w3.org/1999/html">
-    @include('admin.header')
-        <!-- Sale & Revenue Start -->
+    <div class="content">
+    @include('Admin.header')
+    <!-- Sale & Revenue Start -->
         <div class="container-fluid pt-4 px-4">
             <div class="row g-4">
                 <div class="col-sm-6 col-xl-3">
-                    <a href="/admin/place/create" class="btn btn-info m-2" style="width: 200px">Add Place</a>
-
-                    </button>
-                    <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                        <i class="fa fa-chart-line fa-3x text-primary"></i>
-                        <div class="ms-3">
-                            <p class="mb-2">Today Sale</p>
-                            <h6 class="mb-0">$1234</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xl-3">
-                    <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                        <i class="fa fa-chart-bar fa-3x text-primary"></i>
-                        <div class="ms-3">
-                            <p class="mb-2">Total Sale</p>
-                            <h6 class="mb-0">$1234</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xl-3">
-                    <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                        <i class="fa fa-chart-area fa-3x text-primary"></i>
-                        <div class="ms-3">
-                            <p class="mb-2">Today Revenue</p>
-                            <h6 class="mb-0">$1234</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xl-3">
-                    <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                        <i class="fa fa-chart-pie fa-3x text-primary"></i>
-                        <div class="ms-3">
-                            <p class="mb-2">Total Revenue</p>
-                            <h6 class="mb-0">$1234</h6>
-                        </div>
-                    </div>
-                </div>
+                    <h1>Edit Place:   {{$data->title}}</h1>
             </div>
         </div>
-        <!-- Sale & Revenue End -->
-
-
-        <!-- Sales Chart Start -->
-        <div class="container-fluid pt-4 px-4">
-            <div class="row g-4">
-                <div class="col-sm-12 col-xl-6">
-                    <div class="bg-light text-center rounded p-4">
-                        <div class="d-flex align-items-center justify-content-between mb-4">
-                            <h6 class="mb-0">Worldwide Sales</h6>
-                            <a href="">Show All</a>
-                        </div>
-                        <canvas id="worldwide-sales"></canvas>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-xl-6">
-                    <div class="bg-light text-center rounded p-4">
-                        <div class="d-flex align-items-center justify-content-between mb-4">
-                            <h6 class="mb-0">Salse & Revenue</h6>
-                            <a href="">Show All</a>
-                        </div>
-                        <canvas id="salse-revenue"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Sales Chart End -->
-
 
 
         <!-- Recent Sales Start -->
@@ -151,107 +87,6 @@
             </div>
         </div>
         <!-- Recent Sales End -->
-        <div class="col-sm-12 col-xl-6">
-            <div class="bg-light rounded h-100 p-4">
-                <h6 class="mb-4">Place List</h6>
-                <table class="table table-bordered">
-                    <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First Name</th>
-                        <th scope="col">Last Name</th>
-                        <th scope="col">Email</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>jhon@email.com</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>mark@email.com</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>jacob@email.com</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header">
-                <a href="">Add Place</a>
-            </div>
-        </div>
-
-        //card header
-        <div class="card-body">
-            <table class="table table-bordered">
-                <thead>
-                <tr>
-                    <th style="width: 10px">Id</th>
-                    <td >CategoryId</td>
-                    <td >UserId</td>
-                    <td >created_at</td>
-                    <td >updated_at</td>
-                    <td >City</td>
-                    <td >Country</td>
-                    <td >Location</td>
-                    <th >Title</th>
-                    <th >Detail</th>
-                    <th >Title</th>
-                    <th >Keyword</th>
-                    <th >Description</th>
-                    <th >Image</th>
-                    <th >Status</th>
-                    <th style="width: 40px">Edit</th>
-                    <th style="width: 40px">Delete</th>
-                    <th style="width: 40px">Show</th>
-
-
-                </tr>
-                </thead>
-                <tbody>
-                @foreach( $data as  $rs)
-        <tr>
-            <td>{{$rs->id}}</td>
-            <td>{{$rs->title}}</td>
-            <td>{{$rs->keywords}}</td>
-            <td>{{$rs->description}}</td>
-            <td>{{$rs->userId}}</td>
-            <td>{{$rs->categoryId}}</td>
-            <td>{{$rs->city}}</td>
-            <td>{{$rs->location}}</td>
-            <td>{{$rs->country}}</td>
-            <td>{{$rs->detail}}</td>
-            <td>
-                @if($rs->image)
-                    <img src="{{Storage::url($rs->image)}}" style="height: 40px">
-                @endif
-            </td>
-
-            <td>{{$rs->status}}</td>
-            <td>{{$rs->parent_id}}</td>
-            <td>{{$rs->created_at}}</td>
-            <td>{{$rs->updated_at}}</td>
-            <td><a href="{{route('admin.place.edit',[$rs->id])}}" class="btn btn-block btn-info btn-sm">Edit</a></td>
-            <td><a href="/admin/place/destroy/{{$rs->id}}" class="btn btn-block btn-danger btn-sm"
-              onclick="return confirm('Deleting !! Are you sure?')" >Delete </a> </td>
-            <td><a href="{{route('admin/place/show',[$rs->id])}}" class="btn btn-block btn-success btn-sm">Show</a> </td>
-        </tr>
-
-    @endforeach
-    </tbody>
-    </table>
-    </div>
 
 
 
@@ -323,7 +158,7 @@
                         </div>
                         <div class="d-flex mb-2">
                             <input class="form-control bg-transparent" type="text" placeholder="Enter task">
-                            <button type="button" class="btn btn-primary ms-2">Add</button>
+                            <button type="button" class="btn btn-primary ms-2">Save</button>
                         </div>
                         <div class="d-flex align-items-center border-bottom py-2">
                             <input class="form-check-input m-0" type="checkbox">
@@ -375,15 +210,163 @@
             </div>
         </div>
         <!-- Widgets End -->
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Place Elements</h3>
+        </div>
+        <form role="form" action="{{route('admin.place.update',['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
+            @csrf
+            <div class="card-body">
+                <div class="form-group">
+
+                    <label>Parent Category</label>
+                    <select class="form-control select2" name="category_id" style="...">
+                        <option value="0" selected="selected">Main Place</option>
+                        @foreach($datalist as $rs)
+{{--                            <option value="{{$rs->id}}" @if($rs->id == $data->category_id)  selected="selected" @endif >--}}
+{{--                                {{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->$title)}}</option>--}}
+                        @endforeach
+                    </select>
 
 
-        <!-- Footer End -->
-        @include('admin.footer')
-    </div>
-    <!-- Content End -->
+
+
+
+                    <label for="exampleInputEmail1">Title</label>
+                    <input type="text" class="form-control" name="title" value="{{$data->title}}" >
+            </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">keywords</label>
+                    <input type="text" class="form-control" name="keywords" value="{{$data->keywords}}" >
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">id</label>
+                    <input type="text" class="form-control" name="id" value="{{$data->id}}" >
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">parent_id</label>
+                    <input type="text" class="form-control" name="parent_id" value="{{$data->parent_id}}" >
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">description</label>
+                    <input type="text" class="form-control" name="description" value="{{$data->description}}" >
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">image</label>
+                    <input type="text" class="form-control" name="image" value="{{$data->image}}" >
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">status</label>
+                    <input type="text" class="form-control" name="status" value="{{$data->status}}" >
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">created_at</label>
+                    <input type="text" class="form-control" name="created_at" value="{{$data->created_at}}" >
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">updated_at</label>
+                    <input type="text" class="form-control" name="updated_at" value="{{$data->updated_at}}" >
+                </div>
+                <div class="card-footer">
+
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+
+
+                <div class="col-sm-12 col-xl-6">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">Check, Radio &amp; Switch</h6>
+
+
+                <div class="form-check">
+
+
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Default checkbox
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked="">
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Checked checkbox
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                    <label class="form-check-label" for="inlineCheckbox1">1</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                    <label class="form-check-label" for="inlineCheckbox2">2</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" disabled="">
+                    <label class="form-check-label" for="inlineCheckbox3">3 (disabled)</label>
+                </div>
+                <hr>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Default radio
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked="">
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Default checked radio
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                    <label class="form-check-label" for="inlineRadio1">1</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                    <label class="form-check-label" for="inlineRadio2">2</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" disabled="">
+                    <label class="form-check-label" for="inlineRadio3">3 (disabled)</label>
+                </div>
+                <hr>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox
+                        input</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked="">
+                    <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox
+                        input</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDisabled" disabled="">
+                    <label class="form-check-label" for="flexSwitchCheckDisabled">Disabled switch checkbox
+                        input</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckCheckedDisabled" checked="" disabled="">
+                    <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Disabled checked
+                        switch checkbox input</label>
+                </div>
+            </div>
+        </div>
+        <select class="form-control" name="status">
+            <option selected>{{$data->status}}</option>
+            <option>True</option>
+            <option>False</option>
+        </select>
+<-- Main content -->
+       <section  class="content">
+           <div class="card">
+               <div class="card-header">
+                   <h3 class="card-title">Details</h3>
+               </div>
+           </div>
+       </section>
 
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-
 @endsection

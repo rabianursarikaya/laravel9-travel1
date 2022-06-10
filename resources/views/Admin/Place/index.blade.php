@@ -1,11 +1,12 @@
+@extends('layouts.admin')
 
+@section('title', 'Admin panel Home Panel')
 
-@section('admin.content')
+@section('content')
 
-    <!-- Content Start -->
     <div class="content" xmlns="http://www.w3.org/1999/html">
     @include('admin.header')
-        <!-- Sale & Revenue Start -->
+    <!-- Sale & Revenue Start -->
         <div class="container-fluid pt-4 px-4">
             <div class="row g-4">
                 <div class="col-sm-6 col-xl-3">
@@ -198,18 +199,8 @@
                 <thead>
                 <tr>
                     <th style="width: 10px">Id</th>
-                    <td >CategoryId</td>
-                    <td >UserId</td>
-                    <td >created_at</td>
-                    <td >updated_at</td>
-                    <td >City</td>
-                    <td >Country</td>
-                    <td >Location</td>
+                    <th >Parent</th>
                     <th >Title</th>
-                    <th >Detail</th>
-                    <th >Title</th>
-                    <th >Keyword</th>
-                    <th >Description</th>
                     <th >Image</th>
                     <th >Status</th>
                     <th style="width: 40px">Edit</th>
@@ -221,37 +212,31 @@
                 </thead>
                 <tbody>
                 @foreach( $data as  $rs)
-        <tr>
-            <td>{{$rs->id}}</td>
-            <td>{{$rs->title}}</td>
-            <td>{{$rs->keywords}}</td>
-            <td>{{$rs->description}}</td>
-            <td>{{$rs->userId}}</td>
-            <td>{{$rs->categoryId}}</td>
-            <td>{{$rs->city}}</td>
-            <td>{{$rs->location}}</td>
-            <td>{{$rs->country}}</td>
-            <td>{{$rs->detail}}</td>
-            <td>
-                @if($rs->image)
-                    <img src="{{Storage::url($rs->image)}}" style="height: 40px">
-                @endif
-            </td>
+                    <tr>
+                        <td>{{$rs->id}}</td>
+                        <td>{{$rs->title}}</td>
+                        <td>{{\App\Http\Controllers\AdminPanel\AdminPlacesController::getParentsTree($rs,$rs->title)}}</td>
 
-            <td>{{$rs->status}}</td>
-            <td>{{$rs->parent_id}}</td>
-            <td>{{$rs->created_at}}</td>
-            <td>{{$rs->updated_at}}</td>
-            <td><a href="{{route('admin.place.edit',[$rs->id])}}" class="btn btn-block btn-info btn-sm">Edit</a></td>
-            <td><a href="/admin/place/destroy/{{$rs->id}}" class="btn btn-block btn-danger btn-sm"
-              onclick="return confirm('Deleting !! Are you sure?')" >Delete </a> </td>
-            <td><a href="{{route('admin/place/show',[$rs->id])}}" class="btn btn-block btn-success btn-sm">Show</a> </td>
-        </tr>
+                        <td>
+                            @if($rs->image)
+                                <img src="{{Storage::url($rs->image)}}" style="height: 40px">
+                            @endif
+                        </td>
 
-    @endforeach
-    </tbody>
-    </table>
-    </div>
+                        <td>{{$rs->status}}</td>
+                        <td>{{$rs->parent_id}}</td>
+                        <td>{{$rs->created_at}}</td>
+                        <td>{{$rs->updated_at}}</td>
+                        <td><a href="{{route('admin.place.edit',[$rs->id])}}" class="btn btn-block btn-info btn-sm">Edit</a></td>
+                        <td><a href="/admin/place/destroy/{{$rs->id}}" class="btn btn-block btn-danger btn-sm"
+                               onclick="return confirm('Deleting !! Are you sure?')" >Delete </a> </td>
+                        <td><a href="{{route('admin.place.show',[$rs->id])}}" class="btn btn-block btn-success btn-sm">Show</a> </td>
+                    </tr>
+
+                @endforeach
+                </tbody>
+            </table>
+        </div>
 
 
 
@@ -374,16 +359,6 @@
                 </div>
             </div>
         </div>
-        <!-- Widgets End -->
 
-
-        <!-- Footer End -->
-        @include('admin.footer')
-    </div>
-    <!-- Content End -->
-
-
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
 
 @endsection

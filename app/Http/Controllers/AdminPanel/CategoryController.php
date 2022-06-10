@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\AdminPanel;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
+use App\Models\Place;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use function Symfony\Component\Translation\t;
@@ -26,7 +26,7 @@ class CategoryController extends Controller
         {
             return $title;
         }
-        $parent = Category::find($category->parent_id);
+        $parent = Place::find($category->parent_id);
         $title = $parent->title . '>' . $title;
         return CategoryController::getParentsTree($parent,$title);
     }
@@ -42,7 +42,7 @@ class CategoryController extends Controller
 
     public function index()
     {
-        $data=  Category::all();
+        $data=  Place::all();
         return view('admin.category.index',[
             'data' => $data
     ]);
@@ -55,12 +55,7 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
 
-
-        return view('admin.category.create');
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -71,8 +66,8 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         //
-        $data=new Category();
-        $data->parent_id =0;
+        $data=new Place();
+        $data->parent_id =$request->parent_id ;
         $data-> title= $request->title;
         $data-> keywords= $request->keywords;
         $data-> description= $request->description;
@@ -87,14 +82,14 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\Models\Category $category
+     * @param \App\Models\Place $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category,$id)
+    public function show(Place $category, $id)
 
         //
         {
-            $data=  Category::find($id);
+            $data=  Place::find($id);
             return view('admin.category.show',[
                 'data' => $data
             ]);
@@ -104,15 +99,18 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Models\Category $category
+     * @param \App\Models\Place $category
      * @return \Illuminate\Http\Response
      */
 
-    public function edit(Category $category,$id)
+    public function edit(Place $category, $id)
     {
-        $data=  Category::find($id);
+
+        $data=  Place::find($id);
+        $datalist= Place::all();
         return view('admin.category.edit',[
-            'data' => $data
+            'data' => $data,
+            'datalist' => $datalist
         ]);
     }
 
@@ -122,22 +120,22 @@ class CategoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Category $category
+     * @param \App\Models\Place $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category,$id)
+    public function update(Request $request, Place $category, $id)
     {
         //
 
-            $data=Category::find($id);
-            $data->parent_id =0;
+            $data=Place::find($id);
+            $data->parent_id =$request->parent_id ;
             $data-> title= $request->title;
             $data-> keywords= $request->keywords;
             $data-> description= $request->description;
             $data-> status= $request->status;
             $data-> created_at= $request->created_at;
             $data-> updated_at =$request->updated_at;
-            if ($request->file(key: 'image')){
+            if ($request->file( 'image')){
                 $data->image= $request->file('image')->store( 'images');
             }
             $data->save();
@@ -148,21 +146,26 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Models\Category $category
+     * @param \App\Models\Place $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category,$id)
+    public function destroy(Place $category, $id)
     {
         //
-        $data= Category::find($id);
-        Storage::delete($data->image);
+        $data= Place::find($id);
+        if ($data->image && Storage::disk( 'public')->exists($data->image)){
+            Storage::delete($data->image);
+        }
         $data->delete();
         return redirect(to: 'admin/category');
     }
 
-    public function createCategory()
+    public function create()
     {
-        return view('admin.category.createCategory');
+        $data= Place::all();
+        return view('admin.category.create',[
+            'data' => $data
+        ]);
     }
 }
 
